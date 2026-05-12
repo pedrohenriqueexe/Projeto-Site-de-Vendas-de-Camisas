@@ -22,6 +22,47 @@
             <img src="logo.png" alt="Logo" class="main-logo-img">
         </header>
 
+        <!-- NOVO: BOTÃO VOLTAR AO TOPO -->
+        <div id="back-to-top" onclick="voltarAoTopo()">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <div id="cart-icon" onclick="abrirCarrinho()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharCarrinho()">&times;</span>
+                
+                <div id="cart-main-view">
+                    <h2 style="font-family: 'Orbitron'; color: #d4af37; margin-bottom: 20px;">SEU CARRINHO</h2>
+                    <div id="cart-items"></div>
+                    <div id="cart-total" style="margin-top: 20px; font-weight: bold; font-size: 1.2rem; border-top: 1px solid #333; padding-top: 10px;"></div>
+                    <button class="btn-stadium" style="margin-top: 20px;" onclick="irParaPagamento()">PROSSEGUIR PARA PAGAMENTO</button>
+                </div>
+
+                <div id="payment-screen" style="display: none; text-align: center;">
+                    <h2 style="font-family: 'Orbitron'; color: #d4af37; margin-bottom: 10px;">PAGAMENTO PIX</h2>
+                    <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">Pague agora para agilizar seu pedido!</p>
+                    
+                    <div style="background: #fff; padding: 10px; display: inline-block; border-radius: 10px; margin-bottom: 15px;">
+                        <img src="pix-qrcode.jpg" alt="QR Code PIX" style="width: 180px; height: 180px; display: block;">
+                    </div>
+
+                    <div style="background: #111; padding: 12px; border-radius: 5px; border: 1px dashed var(--gold); margin-bottom: 20px; position: relative;">
+                        <small style="display: block; color: #888; margin-bottom: 5px;">Chave PIX (celular):</small>
+                        <strong id="pix-key">81992140769</strong>
+                        <button onclick="copiarPix()" style="display:block; margin: 10px auto 0; background: var(--gold); border:none; padding: 5px 10px; font-size: 0.7rem; cursor:pointer; font-weight:bold; color: #000;">COPIAR CHAVE</button>
+                    </div>
+
+                    <button class="btn-stadium" onclick="confirmarNoZap()">ENVIAR COMPROVANTE NO ZAP</button>
+                    <button onclick="voltarProCarrinho()" style="background:none; border:none; color:#888; margin-top: 15px; cursor:pointer; font-size: 0.8rem;">← Voltar ao carrinho</button>
+                </div>
+            </div>
+        </div>
+
         <nav class="tech-categories">
             <button class="cat-btn active" data-filter="all">TODAS</button>
             <button class="cat-btn" data-filter="brasil">BRASIL</button>
@@ -31,10 +72,9 @@
 
         <main class="product-container" id="catalog"></main>
 
+        <!-- RODAPÉ ATUALIZADO: APENAS HOME -->
         <footer class="bottom-nav">
             <a href="#" class="active"><i class="fas fa-home"></i><span>HOME</span></a>
-            <a href="#"><i class="fas fa-search"></i><span>BUSCA</span></a>
-            <a href="#"><i class="fab fa-whatsapp"></i><span>PEDIDOS</span></a>
         </footer>
     </div>
 
